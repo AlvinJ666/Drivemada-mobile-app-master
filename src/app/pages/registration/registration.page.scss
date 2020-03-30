@@ -1,0 +1,126 @@
+.container {
+  width: 100px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+ion-img {
+  /* this is a override of the shared launch css */
+  /* we have decreased the margin size to give more room for data entry */
+  margin-top: 5% !important;
+}
+
+.ion-invalid{
+    &.ion-dirty {
+    background-color: #f53d3d !important;
+  }
+  & + .phone_invalid{
+    display: flex;
+
+  }
+}
+
+.phone_invalid {
+  display: none;
+}
+
+.slider {
+  overflow-y: hidden;
+  max-height: 500px; /* approximate max height */
+
+  transition-property: all;
+  transition-duration: .5s;
+  transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+}
+.slider.closed {
+  max-height: 0px;
+}
+
+.password-format{
+  padding-right: 10%;
+  padding-left: 10%;
+  font-size: 13px;
+}
+
+.marg-rt{
+  margin-right: 10%;
+}
+
+.special-char-format{
+  padding-left: 10%;
+  font-size: 13px;
+}
+
+.phone-format{
+  padding-bottom: 2%;
+  padding-left: 15%;
+  font-size: 13px;
+}
+
+ion-icon.green{
+  color: #0ec254;
+}
+
+.passConf{
+  padding-left: 13%;
+}
+
+.confirm{
+  padding-top: 4%;
+}
+
+// bubble
+/* CSS talk bubble */
+.talk-bubble {
+  margin-left: 9%;
+  margin-bottom: 6%;
+  display: inline-block;
+  position: relative;
+  width: 85%;
+  height: auto;
+  background-color: lightsalmon;
+}
+
+.round{
+  border-radius: 30px;
+  -webkit-border-radius: 30px;
+  -moz-border-radius: 30px;
+}
+
+/*Right triangle, placed bottom left side slightly in*/
+.tri-right.border.btm-left:before {
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: -8px;
+  right: auto;
+  top: auto;
+  bottom: -40px;
+  border: 32px solid;
+  border-color: transparent transparent transparent #666;
+}
+.tri-right.btm-left:after{
+  content: ' ';
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0px;
+  right: auto;
+  top: auto;
+  bottom: -20px;
+  border: 22px solid;
+  border-color: transparent transparent transparent lightsalmon;
+}
+
+/* talk bubble contents */
+.talktext{
+  padding: 1em;
+  text-align: left;
+  line-height: 1.5em;
+}
+.talktext p{
+  /* remove webkit p margins */
+  -webkit-margin-before: 0em;
+  -webkit-margin-after: 0em;
+}

@@ -1,0 +1,27 @@
+<ion-header>
+    <ion-toolbar>
+
+        <ion-title>Inbox</ion-title>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+
+    <h1 *ngIf="msgs.messagesList[0]">Messages with {{msgs.messagesList[0].nameFrom}}</h1>
+
+    <div class="msgBox" *ngFor="let item of msgs.messagesList; let i = index;">
+
+        <div [ngClass]="{'fromBanner' : item.idFrom === msgs.messagesList[0].idFrom, 'toBanner' : item.idFrom !== msgs.messagesList[0].idFrom}"  >
+<!--        -->
+            <label class="divLeft">
+                <ion-icon class="circle person" name="person" [ngClass]="{'hidden' : msgs.threadsIcons[item.idFrom] !== undefined}" ></ion-icon>
+                <img class="circle profileIcon" [ngClass]="{'hidden' : msgs.threadsIcons[item.idFrom] === undefined}" src="{{msgs.threadsIcons[item.idFrom]}}" />
+            </label>
+            <label class="divMid">{{item.nameFrom}}</label>
+            <label class="divRight">{{utils.formatDate(item.createdDateUTC)}}</label>
+        </div>
+
+        <ion-textarea style="padding: 10px;"> {{item.text}}</ion-textarea>
+
+    </div>
+    <span id="showMe"></span>
+</ion-content>

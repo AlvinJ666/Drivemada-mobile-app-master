@@ -1,0 +1,41 @@
+
+
+<ion-content>
+
+    <!--   <ion-icon (click)="router.navigateByUrl('welcome')" class="backArrow" name="arrow-back"></ion-icon>
+
+   <ion-img src="/assets/img/demo_welcome_logo.png" alt="CAREMADA"></ion-img>-->
+    <form (submit)="doLogin()">
+        <ion-list lines="none">
+            <div class="card shadow zindex-100 mb-0">
+                <div class="card-body px-md-5 py-5">
+                    <div class="mb-5 ng-star-inserted"><h6 class="h3">Login</h6>
+                        <p class="text-muted mb-0 ng-star-inserted">Sign in to your account to continue.</p>
+                    </div>
+                    <span class="clearfix ng-star-inserted"></span>
+                    <form class="ng-valid ng-star-inserted ng-dirty ng-touched" novalidate="" role="form">
+                        <div class="form-group">
+                            <label class="form-control-label">Email address</label>
+                            <div class="input-group input-group-merge"><div class="input-group-prepend">
+                                <span class="input-group-text">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                            </div><input class="form-control ng-valid ng-dirty ng-touched" name="email" placeholder="name@example.com" type="email"></div>
+                        </div>
+                        <div class="form-group mb-4">
+                            <div class="d-flex align-items-center justify-content-between"><div>
+                                <label class="form-control-label">Password</label>
+                            </div></div><div class="input-group input-group-merge"><div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-key"></i>
+                            </span></div>
+                            <input class="form-control ng-valid ng-dirty ng-touched" name="password" placeholder="********" type="password">
+                        </div>
+                            <div class="mt-2 text-right"><a class="small text-muted text-underline--dashed border-primary" href="/recover" routerlink="/recover">Forgot password?</a></div>
+                        </div><div class="mt-4"><button class="btn btn-sm btn-primary btn-icon rounded-pill" type="submit" (click)="doLogin()"><span class="btn-inner--text">Login</span>
+                        <span class="btn-inner--icon"><i class="fas fa-long-arrow-alt-right"></i></span></button></div></form>
+                </div><div class="card-footer px-md-5"><small>Not registered?</small>&nbsp;<a class="small font-weight-bold" href="/register" routerlink="/register">Create account</a></div>
+            </div>
+        </ion-list>
+    </form>
+</ion-content>
+

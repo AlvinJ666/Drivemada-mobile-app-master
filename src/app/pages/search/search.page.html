@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>payment</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <div>
+        <ion-input expand="full" id="regPostCd" type="text" pattern="^[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d$" maxlength="6" minlength="6"
+                   [(ngModel)]="postalCode" name="postalCode" placeholder="{{ 'POSTALCODE' | translate }}"></ion-input>
+        <br/>
+        <span><ion-label  class="label" style="float: left;">within 20km</ion-label><ion-label class="label" style="float: right;">Advanced Search</ion-label> </span>
+        <br/>
+        <ion-button  expand="block" fill="outline" class="searchBtn" (click)="search()">Search</ion-button>
+
+
+    </div>
+
+
+    <div class="msgBox" *ngFor="let item of workOffersArray; let i = index;">
+        <ion-row>
+
+            <ion-col>
+                <ion-label class="label2 ion-float-end">1465 </ion-label>
+            </ion-col>
+
+        </ion-row>
+    </div>
+
+</ion-content>

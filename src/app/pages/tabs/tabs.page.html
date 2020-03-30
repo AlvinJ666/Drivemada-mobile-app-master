@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-toolbar class="header" color=#273444>
+        <ion-buttons slot="start">
+            <ion-menu-button [ngClass]="{'hidden' : !msgs.hideBackBtn}"  ></ion-menu-button>
+
+                <ion-icon style="font-size: 20px; margin-right:-25px; color:#fff;" (click)="router.navigateByUrl('tabs/inbox')" name="arrow-back" [ngClass]="{'hidden' : msgs.hideBackBtn}"></ion-icon>
+        </ion-buttons>
+        <ion-title>
+            <span [ngClass]="{'hidden' : user.self.profile.profilePicture === ''}" >
+            <img class="circle profileIcon offset" src="{{user.self.profile.profilePicture}}" />
+            </span>
+            <span [ngClass]="{'hidden' : user.self.profile.profilePicture !== ''}">
+                <ion-icon class="circle person offset" name="person"></ion-icon>
+            </span>
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+
+<ion-tabs>
+
+    <ion-tab-bar slot="bottom" class="tabs bg-dark">
+        <ion-tab-button tab="dashboard" class="tabs">
+            <ion-icon name="person" class="icons"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="calendar" class="tabs">
+            <ion-icon name="calendar" class="icons"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="inbox" class="tabs">
+            <ion-icon name="mail" class="icons"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button tab="search" class="tabs">
+            <ion-icon name="search" class="icons"></ion-icon>
+        </ion-tab-button>
+
+        <ion-tab-button tab="payment" class="tabs">
+            <ion-icon name="payment" class="icons"></ion-icon>
+        </ion-tab-button>
+    </ion-tab-bar>
+
+</ion-tabs>

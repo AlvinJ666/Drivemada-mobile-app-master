@@ -1,0 +1,15 @@
+<ion-header>
+
+</ion-header>
+
+<ion-content>
+    <ion-button expand="full" (click)="ApiTests()">Api Tests</ion-button>
+
+    <ion-item>
+        <ion-label>Simulate Api Data (Mock Data)</ion-label>
+        <ion-toggle [(ngModel)]="api.useMockData"></ion-toggle>
+    </ion-item>
+
+    <ion-button class="logoutPos" expand="full" (click)="Logout()">{{ 'LOGOUT' | translate }}</ion-button>
+
+</ion-content>

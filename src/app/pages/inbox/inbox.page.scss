@@ -1,0 +1,76 @@
+
+  .boxLabel{
+    border-style:groove;
+    float: left;
+    width: 135px;
+    height: 40px;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 10px;
+  }
+
+  .boxLabel2{
+    border-style:groove;
+    float: right;
+    width: 135px;
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 10px;
+
+
+  }
+  .grey{
+    background-color: darkgray;
+  }
+  .msgBox{
+    background-color:white;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+
+  .clientType {
+    margin-bottom: 50px;
+  }
+  .divLeft{
+    float: left;
+    margin-left: 20px;
+    margin-top: 16px;
+
+  }
+  .divMid{
+    float: left;
+    margin-left: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+
+  }
+  .divRight{
+    float: right;
+    margin-right: 20px;
+    margin-top: 20px;
+  }
+  .profileIcon{
+    width: 35px;
+    height: 35px;
+
+  }
+
+  .hidden{
+    display: none !important;
+  }
+
+  .circle {
+    display: inline-block;
+    background-color: #dadbdd;
+    border-radius: 75%;
+  }
+
+  .person {
+    color: #a2a4ab;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    height: 25px;
+    width: 25px;
+  }

@@ -1,0 +1,7 @@
+{
+  "name": "Caremada",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}

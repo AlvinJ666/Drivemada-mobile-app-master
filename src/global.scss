@@ -1,0 +1,45 @@
+// http://ionicframework.com/docs/theming/
+@import '~@ionic/angular/css/core.css';
+@import '~@ionic/angular/css/normalize.css';
+@import '~@ionic/angular/css/structure.css';
+@import '~@ionic/angular/css/typography.css';
+@import '~@ionic/angular/css/padding.css';
+@import '~@ionic/angular/css/float-elements.css';
+@import '~@ionic/angular/css/text-alignment.css';
+@import '~@ionic/angular/css/text-transformation.css';
+@import '~@ionic/angular/css/flex-utils.css';
+
+.toolbar-background {
+  background-color: #fff;
+}
+
+
+// Shared Variables
+// --------------------------------------------------
+// To customize the look and feel of this app, you can override
+// the Sass variables found in Ionic's source scss files.
+// To view all the possible Ionic variables, see:
+// http://ionicframework.com/docs/v2/theming/overriding-ionic-variables/
+
+$text-color: #000;
+$background-color: #fff;
+
+.logoutPos{
+  bottom: 0;
+  position:absolute;
+  width:100%;
+}
+
+.circle {
+  display: inline-block;
+  background-color: #dadbdd;
+  border-radius: 100%;
+  vertical-align:  middle;
+}
+
+.calendar{
+  //display: inline-grid;
+  background-color: #ffffff;
+  position: page;
+  //vertical-align: middle;
+}

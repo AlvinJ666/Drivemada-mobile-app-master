@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Inbox</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 style="font-family:'Bookman Old Style'">Inbox</h1><br>
+  <div class="clientType">
+    <ion-label id="provider" class="boxLabel"[ngClass]="{'grey' : user.self.profile.isCaregiver}"> {{'Service Provider'}}</ion-label>
+    <ion-label id="client" class="boxLabel2"[ngClass]="{'grey' : !user.self.profile.isCaregiver}">{{ 'Client'  }}</ion-label>
+      <br>
+  </div>
+<div >
+    <div (click)="msgs.launchMessages(i)" class="msgBox"  *ngFor="let item of msgs.threadsList; let i = index;" >
+
+        <div >
+            <label class="divLeft" >
+                <ion-icon class="circle person" name="person"
+                          [ngClass]="{'hidden' : (msgs.threadsIcons[item.idFrom] !== undefined)}">
+                </ion-icon>
+
+                <img [ngClass]="{'hidden' : (msgs.threadsIcons[item.idFrom] === undefined)}"
+                     class="circle profileIcon" src="{{msgs.threadsIcons[item.idFrom]}}" />
+            </label>
+          <label class="divMid">{{item.nameFrom}}</label>
+          <label class="divRight">{{utils.formatDate(item.lastUpdatedUTC)}}</label>
+        </div>
+      </div>
+</div>
+
+</ion-content>

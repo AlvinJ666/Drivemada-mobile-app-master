@@ -1,0 +1,54 @@
+<!--
+  Generated template for the CalendarPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Calendar
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br/>
+  <ion-title style="text-align: center">
+    {{ viewTitle }}
+  </ion-title>
+  <div class="bar bar-header bar-dark">
+  <!-- Segment with default selection -->
+  <ion-segment>
+    <ion-segment-button (click)="mode('month')">
+      <ion-label>Month</ion-label>
+    </ion-segment-button>
+    <ion-segment-button (click)="mode('week')">
+      <ion-label>Week</ion-label>
+    </ion-segment-button>
+    <ion-segment-button (click)="mode('day')">
+      <ion-label>Day</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+  </div>
+
+
+  <ion-buttons end>
+    <button ion-button icon-only (click)="mode('week')">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-buttons>
+
+  <calendar [eventSource]="eventSource"
+            [calendarMode]="calendar.mode"
+            [currentDate]="calendar.currentDate"
+            (onEventSelected)="onEventSelected($event)"
+            (onTitleChanged)="onViewTitleChanged($event)"
+            (onTimeSelected)="onTimeSelected($event)"
+            step="30"
+            class="calendar">
+  </calendar>
+</ion-content>

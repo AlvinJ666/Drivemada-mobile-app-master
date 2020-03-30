@@ -1,0 +1,124 @@
+<div class="main-content">
+    <!-- Header (account) -->
+    <section class="bg-dark d-flex align-items-end" data-offset-top="#header-main">
+        <!-- Header container -->
+        <div class="container pt-4 pt-lg-0">
+            <div class="row">
+                <div class=" col-lg-12">
+                    <!-- Salute + Small stats -->
+                    <div class="text-center" [ngClass]="{'hidden' : api.profilePicture === ''}">
+                        <img class="circle" src="{{api.profilePicture}}" />
+                    </div>
+                </div>
+                <div class=" col-lg-12">
+                    <span><b>{{api.firstName}} {{api.lastName}}</b></span>
+                </div>
+                <div class=" col-lg-12">
+                    <span class="text-center">
+                        {{api.about}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--section *ngIf="(user$ | async) as user; else loading" class="slice"-->
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div padding-horizontal>
+                        <ion-item>
+                            <ion-label >Total Reviews:</ion-label>
+                            <ion-label style="text-align: right;">{{api.totalReviews}}</ion-label>
+                        </ion-item>
+                    </div>
+                    <div padding-horizontal>
+                        <ion-item>
+                            <ion-label>Avg Rating:</ion-label>
+                            <ion-label style="text-align: right;">{{api.avgRating}}</ion-label>
+                        </ion-item>
+                    </div>
+                    <div padding-horizontal>
+                        <ion-item>
+                            <ion-label>Register Date:</ion-label>
+                            <div>
+                                <ion-label style="text-align: right;">{{api.registerDate}}</ion-label>
+                            </div>
+                        </ion-item>
+                    </div>
+                    <div padding-horizontal>
+                        <ion-item>
+                            <ion-label>Location:</ion-label>
+                            <div>
+                                <ion-label style="text-align: right;">{{api.location.city}}, {{api.location.area}}, {{api.location.postalCode}}</ion-label>
+                            </div>
+                        </ion-item>
+                    </div>
+
+                    
+                    <div padding-horizontal>
+                        <ion-item>
+                            <ion-label>Email: </ion-label>
+                            <div>
+                                <ion-label style="text-align: right;">{{api.email}}</ion-label>
+                            </div>
+                        </ion-item>
+                    </div>
+
+                    <div padding-horizontal>
+                        <ion-item>
+                            <ion-label>Phone: </ion-label>
+                            <div>
+                                <ion-label style="text-align: right;">{{api.phone}}</ion-label>
+                            </div>
+                        </ion-item>
+                    </div>
+
+                    <div padding-horizontal>
+                        <ion-item>
+                            <ion-label>Date of Birth: </ion-label>
+                            <div>
+                                <ion-label style="text-align: right;">{{api.dob.month}}/{{api.dob.day}}/{{api.dob.year}}</ion-label>
+                            </div>
+                        </ion-item>
+                    </div>
+
+                    <div padding-horizontal>
+                        <div class = "card">
+                            <div class = "item item-avatar">
+                               About:
+                            </div>
+                         
+                            <div class = "item item-body">
+                                {{api.about}}
+                            </div>
+                         </div>
+                                
+                    </div>
+
+
+                    
+                </div>
+
+
+                </div>
+            </div>
+        </div>
+    <!--/section-->
+
+    <ng-template #loading>
+        <section class="slice slice-lg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="d-inline-flex align-items-center">
+                            <div class="spinner-border mr-4" role="status" aria-hidden="true" fill="{color: '#ffffff'}"></div>
+                            <strong>Loading...</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </ng-template>
+
+

@@ -1,0 +1,170 @@
+<ion-content  (ionScroll)="scroll($event)" [scrollEvents]="true" data-ng-init="init()">
+  <div id="content" padding>
+    <div id="mini_profile">
+      <h1 style="margin-top: 75px;text-align: center">{{user.self.profile.firstName}}</h1>
+      <p class="ion-text-center">{{user.self.profile.location.city}}, {{user.self.profile.location.area}}</p>
+      <p class="ion-text-center">{{user.self.profile.about}}</p>
+      <ion-button (click)="viewProfile()" style="float:right; width: 120px;">View Profile</ion-button>
+      <div padding>&nbsp;</div>
+    </div>
+    <div>
+      <ion-tab-bar id="navbar" class="" style="width:100%">
+        <ion-tab-button (click)="swapTab('reviews')" class="tabs">
+          <ion-icon name="text" class="icons"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button  (click)="swapTab('my-work-offers')" class="tabs">
+          <ion-icon name="filing" class="icons"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="swapTab('my-shifts')" class="tabs">
+          <ion-icon name="watch" class="icons"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="swapTab('new-work-offers')" class="tabs">
+          <ion-icon name="mail" class="icons"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button  (click)="swapTab('photos')" class="tabs">
+          <ion-icon name="images" class="icons"></ion-icon>
+        </ion-tab-button>
+        <ion-tab-button (click)="swapTab('verifications')" class="tabs">
+          <ion-icon name="done-all" class="icons"></ion-icon>
+        </ion-tab-button>
+      </ion-tab-bar>
+    </div>
+
+
+    <div id="profileTabs">
+      <div id="profile" [ngClass]="{'hidden' : selectedTab != 'reviews'}" class="profileTab">
+        <h1>Reviews <span *ngIf="user.self.profile.totalReviews"><small>({{user.self.profile.totalReviews}} Reviews)</small></span></h1>
+        <ion-list>
+          <ion-item *ngFor="let item of user.self.myReviewsList; let i = index;">
+            <div>
+              <span>
+                <ion-label style="padding-top: 5%">
+                  {{item.from}}
+                  <ion-icon *ngFor="let star of utils.getRating(item.rating)" name="star" color="primary"></ion-icon>
+                </ion-label>
+              </span>
+              <p> {{item.text}}</p>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div id="my-work-offers" [ngClass]="{'hidden' : selectedTab != 'my-work-offers'}" class="profileTab">
+        <h2>My Work Orders</h2>
+          <ion-tab-bar>
+            <ion-button color="light" (click)="swapWOTab('pending')">Pending</ion-button>
+            <ion-button color="light" (click)="swapWOTab('booked')">Booked</ion-button>
+            <ion-button color="light" (click)="swapWOTab('history')">History</ion-button>
+          </ion-tab-bar>
+
+        <div id="Pending" [ngClass]="{'hidden' : selectedWOTab != 'pending'}" class="profileTab">
+          <h4>Waiting for Service Provider</h4>
+          <ion-grid class="roundedContainer">
+            <ion-row>
+              <ion-col size="12">
+                You currently don't have any orders waiting for a service provider.
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+          <h4>Awaiting Approval</h4>
+          <ion-grid class="roundedContainer">
+            <ion-row>
+              <ion-col size="12">
+                You currently don't have any orders waiting for approval.  </ion-col>
+            </ion-row>
+          </ion-grid>
+      </div>
+        <div id="Booked" [ngClass]="{'hidden' : selectedWOTab != 'booked'}" class="profileTab">
+          <h4>Awaiting Approval</h4>
+          <ion-grid class="roundedContainer">
+            <ion-row>
+              <ion-col size="12">
+                You currently don't have any orders waiting for approval.  </ion-col>
+            </ion-row>
+          </ion-grid>
+          <div>
+            * This is an estimate based on the total number of booked hours, not including fees.
+          </div>
+        </div>
+        <div id="History" [ngClass]="{'hidden' : selectedWOTab != 'history'}" class="profileTab">
+          <h4>Order History</h4>
+          <ion-grid class="roundedContainer">
+            <ion-row>
+              <ion-col size="12">
+                You currently don't have order history.
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </div>
+      </div>
+
+      <div id="my-shifts" [ngClass]="{'hidden' : selectedTab != 'my-shifts'}" class="profileTab">
+        <h1>My Shifts</h1>
+        <ion-grid >
+          <ion-list class="roundedContainer">
+            <ion-item *ngFor="let item of user.self.myShiftsList; let i = index" style="--ion-background-color:#e3e3e3">
+              <ion-grid>
+              <ion-row>
+                <ion-label>
+                  {{item.clientName}}
+                </ion-label></ion-row>
+              <ion-row>
+              <ion-label>
+                {{item.jobAddress}}
+              </ion-label>
+              </ion-row>
+              <ion-row>
+                <ion-label>{{item.startTimeLocal.toDateString() + " " + item.startTimeLocal.getHours() + ":"}}{{item.startTimeLocal.getMinutes() | number:'2.0'}}
+                  - {{((item.endTimeLocal.getTime() - item.startTimeLocal.getTime())/3600000) | number: '.0-0' }} hours</ion-label>
+              </ion-row>
+              </ion-grid>
+            </ion-item>
+          </ion-list>
+
+        </ion-grid>
+      </div>
+
+      <div id="new-work-offers" [ngClass]="{'hidden' : selectedTab != 'new-work-offers'}" class="profileTab">
+        <h1>New Work Offers</h1>
+        <ion-grid class="roundedContainer">
+          <ion-row>
+            <ion-col size="12">
+              You currently don't have any new work offers.
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+
+      <div id="photos" [ngClass]="{'hidden' : selectedTab != 'photos'}" class="profileTab">
+        <h1>Photos</h1>
+
+        <ion-list>
+          <ion-item *ngFor="let item of user.self.myPhotos; let i = index">
+            <div>
+              <span>
+                 <ion-button slot="end" fill="clear" (click)="upload(img)">
+                   <ion-icon slot="icon-only" name="cloud-upload"></ion-icon>
+                 </ion-button>
+                <ion-button slot="end" fill="clear" (click)="deleteImage(img, pos)">
+                  <ion-icon slot="icon-only" name="trash"></ion-icon>
+                </ion-button>
+              </span>
+              <img [src]=item.url>
+            </div>
+          </ion-item>
+        </ion-list>
+      </div>
+
+      <div id="verifications" [ngClass]="{'hidden' : selectedTab != 'verifications'}" class="profileTab">
+        <div class="verificationsHeader">
+          <span>Verifications</span>
+        </div>
+
+        <div class="verification">
+          <ion-icon name="checkmark"></ion-icon>
+          <span>Email</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,170 @@
+
+<ion-content has-footer>
+
+    <ion-icon class="backArrow" (click)="router.navigateByUrl('welcome');" name="arrow-back"></ion-icon>
+
+    <ion-img src="/assets/img/demo_welcome_logo.png" alt="CAREMADA"></ion-img>
+
+    <form (submit)="doSignup()" name="registrationForm">
+        <ion-list lines="none">
+            <div id="credentials" padding style="display: none;" class="talk-bubble round">
+                <div class="talktext">
+                    <p>Please fill in all required fields in correct format.</p>
+                </div>
+            </div>
+
+            <div padding>
+                <div no-padding id="emailBubble" class="talk-bubble tri-right round btm-left" style="display: none;">
+                    <div class="talktext">
+                        <p>The email address already exists!</p>
+                    </div>
+                </div>
+
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-input
+                        id="regEmail" #regEmail type="email" [(ngModel)]="account.email" placeholder="{{ 'EMAIL' | translate }}"
+                        name="email" required (ionBlur)="checkEmail()" (ionChange)="closeEmailBubble();chngBakgrndClr('regEmail')" style=""
+                        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,3}$"
+                        title="Characters followed by an @, followed by characters, and a dot. After dot, 2 or 3 letters from a to z">
+                    </ion-input>
+                </ion-item>
+            </div>
+
+            <div  id="regPasswordFormat" style="display: none;" >
+                <ion-grid>
+                    <ion-row>
+                        <ion-col>
+                            <div class="password-format"><span id="passUpercase" style="display: none;"><ion-icon name="checkmark" class="green"></ion-icon></span> 1 uppercase letter</div>
+                            <div class="password-format"><span id="passNumber" style="display: none;"><ion-icon name="checkmark" class="green"></ion-icon></span> 1 number</div>
+                            <div class="special-char-format"><span id="passSpecChar" style="display: none;"><ion-icon name="checkmark" class="green"></ion-icon></span> 1 special character</div>
+
+                        </ion-col>
+                        <ion-col>
+                            <div class="password-format"><span id="passLowercase" style="display: none;"><ion-icon name="checkmark" class="green"></ion-icon></span> 1 lowercase letter</div>
+                            <div class="password-format"><span id="passCharNum" style="display: none;"><ion-icon name="checkmark" class="green"></ion-icon></span> 8-20 characters</div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </div>
+
+            <div padding-horizontal>
+                <div no-padding id="passConfEq" class="talk-bubble tri-right round btm-left" style="display: none;">
+                    <div class="talktext">
+                        <p>Password and confirm don't match!</p>
+                    </div>
+                </div>
+
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-input id="regPassword" type="password" [(ngModel)]="account.password" name="password" placeholder="{{ 'PASSWORD' | translate }}"
+                               minlength="8" maxlength="20" (ionFocus)="displayPasswordFormat()" (ionChange) = "writeCheckmark()" (ionBlur)="passwordConfirmCheck()"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&]).{8,20}" required>
+
+                    </ion-input>
+                </ion-item>
+            </div>
+
+            <div padding-horizontal class="confirm" style="display: none;" id ="passwordConfirmDiv">
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-input id="passConf" #passwordConfirm  type="password"  value=""
+                               [(ngModel)]="account.passwordConfirm" name="passwordConfirm" required
+                               placeholder="{{ 'CONFIRM' | translate }}" minlength="8"  maxlength="20"
+                               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*#?&]).{8,20}"
+                               (ionBlur)="passwordConfirmCheck()" (ionChange)="closePassConfBubble()">
+                    </ion-input>
+                </ion-item>
+            </div>
+
+
+            <!--<div id="test" class="slider">Some content here....</div>-->
+
+
+            <div padding>
+                <ion-item style="display: flex">
+                    <ion-label></ion-label>
+                    <ion-input id="regFirstName" class="marg-rt" type="text" [(ngModel)]="account.firstName" name="firstName"
+                               placeholder="{{ 'FIRSTNAME' | translate }}" required (ionChange) = "chngBakgrndClr('regFirstName')"></ion-input>
+                    <ion-input id="regLastName" type="text" [(ngModel)]="account.lastName" name="lastName" placeholder="{{ 'LASTNAME' | translate }}"
+                               (ionChange) = "chngBakgrndClr('regLastName')" required></ion-input>
+                </ion-item>
+            </div>
+
+            <div padding-horizontal style="padding-bottom: 4%;">
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-input id ="date" type="text" (ionFocus)="dateType()" [(ngModel)]="account.birthDate" name="birthDate"
+                               (ionChange) = "chngBakgrndClr('date')" placeholder="{{ 'BIRTHDATE' | translate }}" required>
+                    </ion-input>
+                </ion-item>
+            </div>
+
+            <!--<div id="regPhoneFormat" style="display: none;" class="phone-format"> 10 numbers, 1st number cannot be 0</div>
+
+            <div padding-horizontal style="padding-bottom: 4%">
+                <div no-padding id="PhoneBubble" class="talk-bubble tri-right round btm-left" style="display: none;">
+                    <div class="talktext">
+                        <p>The phone number already exists!</p>
+                    </div>
+                </div>
+
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-input id="regPhoneNo" type="text" [(ngModel)]="account.phoneNumber" name="phoneNumber" placeholder="{{ 'PHONENUMBER' | translate }}"
+                               inputmode="tel" pattern="^((?!(0))[0-9]{10})$" required (ionChange) = "chngBakgrndClr('regPhoneNo')"
+                               (ionFocus)="displayPhoneFormat()" minlength="10" maxlength="10" (ionBlur) = "hidePhoneFormat()">
+                    </ion-input>
+                </ion-item>
+            </div>-->
+
+            <div padding-horizontal>
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-input id="regAddLnOne" type="text" [(ngModel)]="account.addressLine1" name="addressLine1"
+                               (ionChange) = "chngBakgrndClr('regAddLnOne');hideField('location');" placeholder="{{ 'ADDRESSLINE1' | translate }}"
+                               required>
+                    </ion-input>
+                </ion-item>
+            </div>
+
+            <div padding>
+                <ion-item>
+                    <ion-label></ion-label>
+                    <ion-input type="text" [(ngModel)]="account.addressLine2" name="addressLine2" placeholder="{{ 'ADDRESSLINE2' | translate }}"></ion-input>
+                </ion-item>
+            </div>
+            <div padding-horizontal>
+                <ion-item>
+                  <ion-label></ion-label>
+                  <ion-input type="text" [(ngModel)]="account.city" name="city" placeholder="{{ 'CITY' | translate }}"></ion-input>
+                </ion-item>
+            </div>
+
+            <div padding>
+                <ion-item>
+                  <ion-label></ion-label>
+                    <ion-input style="margin-right:10%;" type="text" [(ngModel)]="account.area" name="area" placeholder="{{ 'PROVINCE' | translate }}"></ion-input>
+                  <ion-label></ion-label>
+                  <ion-input id="regPostCd" type="text" pattern="^[A-Za-z]\d[A-Za-z]\d[A-Za-z]\d$" maxlength="6" minlength="6"
+                             [(ngModel)]="account.postalCode" name="postalCode" placeholder="{{ 'POSTALCODE' | translate }}"
+                             (ionChange) = "chngBakgrndClr('regPostCd'); hideField('location');" required></ion-input>
+                </ion-item>
+            </div>
+
+            <div id="location" padding style="display: none;" class="talk-bubble round">
+                <div class="talktext">
+                    <p>Cannot find location from address.</p>
+                </div>
+            </div>
+
+            <div>
+                <ion-button expand="block" fill="outline" class="login" (click)="doSignup()" [disabled]="signupClicked">
+                    {{ 'SIGNUP' | translate }}
+                </ion-button>
+            </div>
+            <div padding></div>
+        </ion-list>
+    </form>
+</ion-content>
+

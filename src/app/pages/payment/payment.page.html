@@ -1,0 +1,29 @@
+
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Add Credit Card</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content padding>
+
+    <div>
+        <ion-input expand="full" id="cardnum" type="text" pattern="^(\d{4}[- ]){3}\d{4}|\d{16}$" maxlength="19" minlength="19"
+                   [(ngModel)]="cardNumber" name="cardnum" placeholder="{{'Card Number'}}"></ion-input>
+       
+        <br/>
+        <ion-input style="width:30%" id="expiredate" type="text" pattern="^((0[1-9])|(1[0-2]))\/(\d{2})$" maxlength="5" minlength="5"
+                   [(ngModel)]="expireDate" name="expiredate" placeholder="{{'Expire Date mm/yy'}}"></ion-input>
+         <br/>
+         <ion-input style="width:10%" id="cvv" type="text" pattern="/^[0-9]{3,4}$/" maxlength="5" minlength="5"
+          [(ngModel)]="CVV" name="cvv" placeholder="{{'CVV'}}"></ion-input>
+         <br/>
+        <ion-button  expand="block" fill="outline" class="searchBtn" (click)="save()">Save</ion-button>
+        <br/>
+       <ion-label  class="label" id='cn' style="float: left;">{{cardNumber}}</ion-label>
+        <br/>
+        <ion-label class="label" id='exp' style="float: left;">{{expireDate}}</ion-label> 
+        <br/>
+        <ion-label class="label" id='cvv' style="float: left;">{{CVV}}</ion-label> 
+    </div>
+  </ion-content>
+  

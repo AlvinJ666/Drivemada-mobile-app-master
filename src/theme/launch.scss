@@ -1,0 +1,66 @@
+ion-content {
+  /* Set the background of the entire page */
+  --ion-background-color: #fff;
+  /*disables the green highlighted line below the ion-list item when selected */
+  --ion-color-success: transparent;
+  --ion-color-danger: transparent;
+  // --ion-color-
+}
+
+img{
+  object-fit: cover;
+}
+ion-img{
+  text-align: left;
+  height: auto;
+  max-width: 66.67%;
+  margin: 20% auto auto;
+  object-fit: cover;
+}
+
+ion-button {
+  border-radius: 60px; /* Set radius of the inner button */
+  --border-radius: 60px; /* Set radius of the outer button to match */
+  height: 54px;
+  width: 75%;
+  margin: 25px auto auto;
+  font: 600 20px sans-serif;
+
+  &.sign {
+    --border-color: white;
+    --border-width: medium;
+    color: white;
+
+    &.activated {
+      background-color: rgb(220, 220, 220);
+    }
+  }
+
+  &.login {
+    --border-color: white;
+    background-color: white;
+    color: black;
+
+    &.activated {
+      background-color: rgb(220, 220, 220);
+    }
+  }
+}
+
+ion-input {
+  width: 100%;
+  height: 100%;
+  background-color: #fad5d1;
+  border-radius: 25px;
+  /*adjust the size of the internal text box in the input bubble*/
+  --padding-start: 15px;
+  --padding-end: 15px;
+}
+.backArrow {
+  font-size: 35px;
+  position: absolute;
+  color: white;
+  top: 20px;
+  left: 20px;
+
+}

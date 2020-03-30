@@ -1,0 +1,9 @@
+{
+  "/api/*": {
+    "target": "https://ambitiously-aurochs-microfarad.herokuapp.com",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug",
+    "pathRewrite": {"^/api": ""}
+  }
+}

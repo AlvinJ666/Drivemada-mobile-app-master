@@ -1,0 +1,56 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-icon style="font-size:25px;" (click)="router.navigateByUrl('settings')" name="arrow-back"></ion-icon>
+        </ion-buttons>
+        <ion-title>
+            Rest Demo
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+    <ion-label>Registation Page Api Tests</ion-label>
+    <ion-button expand="full" (click)="postUserExample()">{{ 'post User' }}</ion-button>
+    <ion-button expand="full" (click)="checkPhoneNumberExample()">{{ 'Check Phone Number' }}</ion-button>
+    <ion-button expand="full" (click)="checkEmailExample()">{{ 'Check Email' }}</ion-button>
+
+    <ion-label>Login Page</ion-label>
+    <ion-button expand="full" (click)="resetPasswordExample()">{{ 'Check Reset Password' }}</ion-button>
+
+    <ion-label>Add Page Api Tests</ion-label>
+    <ion-button expand="full" (click)="postWorkOffersExample()">{{ 'post WorkOffers' }}</ion-button>
+    <ion-button expand="full" (click)="deleteWorkMessageExample()">{{ 'delete WorkMessage' }}</ion-button>
+    <ion-button expand="full" (click)="getCareTypesExample()">{{ 'Get care types' }}</ion-button>
+
+    <ion-label>Profile Page Api Tests</ion-label>
+    <ion-button expand="full" (click)="getSelfExample()">{{ 'get Self' }}</ion-button>
+    <ion-button expand="full" (click)="updateSelfExample()">{{ 'Update profile info' }}</ion-button>
+    <ion-button expand="full" (click)="updateSelfAddressExample()">{{ 'update profile Address' }}</ion-button>
+
+    <ion-label>Reviews Component Api Tests</ion-label>
+    <ion-button expand="full" (click)="getReviewsExample()">{{ 'get Reviews' }}</ion-button>
+    <ion-button expand="full" (click)="postReviewsExample()">{{ 'post Review' }}</ion-button>
+
+    <ion-label>Messaging Page Api Tests</ion-label>
+    <ion-button expand="full" (click)="postThreadMessageExample()">{{ 'Creat message' }}</ion-button>
+    <ion-button expand="full" (click)="getThreadMessagesExample()">{{ 'Messages' }}</ion-button>
+    <ion-button expand="full" (click)="postMessageExample()">{{ 'Send Message' }}</ion-button>
+
+    <ion-label>Inbox Page Api Tests</ion-label>
+    <ion-button expand="full" (click)="postThreadExample()">{{ 'Create Thread' }}</ion-button>
+    <ion-button expand="full" (click)="getThreadsExample()">{{ 'Get Threads' }}</ion-button>
+    <ion-button expand="full" (click)="postThreadsExample()">{{ 'Post Threads' }}</ion-button>
+
+    <ion-label>Calender Page Api Tests</ion-label>
+    <ion-button expand="full" (click)="getBookedWorkOffersClientExample()">{{ 'Get Booked WorkOffers as Client' }}</ion-button>
+    <ion-button expand="full" (click)="getBookedWorkOffersProviderExample()">{{ 'Get Booked WorkOffers as Service Provider' }}</ion-button>
+  <ion-button expand="full" (click)="getWorkOfferHistoryProviderExample()">{{ 'Get Work History as Service Provider' }}</ion-button>
+
+
+
+
+
+
+</ion-content>

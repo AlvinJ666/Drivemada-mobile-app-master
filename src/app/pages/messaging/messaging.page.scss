@@ -1,0 +1,69 @@
+.divLeft{
+  float: left;
+  margin-left: 20px;
+  margin-top: 15px;
+
+}
+.divMid{
+  float: left;
+  margin-left: 20px;
+  margin-top: 15px;
+
+}
+
+.msgTitleBox{
+  font-weight:bold;
+
+}
+
+.msgBox {
+  background-color: #e8eaf4;
+  margin-bottom: 20px;
+  border-width: 2px;
+  border-color: #000;
+}
+
+.divRight{
+  float: right;
+  margin-right: 20px;
+  margin-top: 15px;
+}
+.profileIcon{
+  width: 35px;
+  height: 35px;
+
+}
+
+.hidden{
+  display: none !important;
+}
+
+.circle {
+  display: inline-block;
+  background-color: #dadbdd;
+  border-radius: 75%;
+}
+
+.person {
+  color: #a2a4ab;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  height: 25px;
+  width: 25px;
+}
+
+.fromBanner{
+  background-color: #22ae8c;
+  color: #f9f9f9;
+  font-weight:bold;
+  font-size: 15px;
+  height: 60px;
+}
+.toBanner{
+  background-color: #0f0815;
+  color: #f9f9f9;
+  font-size: 15px;
+  font-weight:bold;
+  height: 60px;
+}
